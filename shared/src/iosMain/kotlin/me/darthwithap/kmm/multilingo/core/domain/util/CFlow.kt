@@ -2,7 +2,6 @@ package me.darthwithap.kmm.multilingo.core.domain.util
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.DisposableHandle
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
@@ -13,11 +12,11 @@ actual class CFlow<T> actual constructor(
     coroutineScope: CoroutineScope,
     dispatcher: CoroutineDispatcher,
     onCollect: (T) -> Unit
-  ): DisposableHandle {
+  ): IosDisposableHandle {
     val job = coroutineScope.launch(dispatcher) {
       flow.collect(onCollect)
     }
 
-    return DisposableHandle { job.cancel() }
+    return IosDisposableHandle { job.cancel() }
   }
 }
