@@ -5,7 +5,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
-actual class CFlow<T> actual constructor(
+actual open class CFlow<T> actual constructor(
   private val flow: Flow<T>
 ) : Flow<T> by flow {
   fun subscribe(
