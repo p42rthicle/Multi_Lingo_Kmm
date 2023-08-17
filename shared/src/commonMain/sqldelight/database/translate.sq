@@ -1,0 +1,25 @@
+CREATE TABLE translationHistoryEntity(
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  fromLanguageCode TEXT NOT NULL,
+  toLanguageCode TEXT NOT NULL,
+  fromText TEXT NOT NULL,
+  toText TEXT NOT NULL,
+  timestamp INTEGER NOT NULL
+);
+
+getHistory:
+SELECT *
+FROM translationHistoryEntity
+ORDER BY timestamp DESC;
+
+insertTranslationHistoryEntity:
+INSERT OR REPLACE
+INTO translationHistoryEntity(
+  id,
+  fromLanguageCode,
+  toLanguageCode,
+  fromText,
+  toText,
+  timestamp
+)
+VALUES(?,?,?,?,?,?);

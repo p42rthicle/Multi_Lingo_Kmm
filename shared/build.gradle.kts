@@ -71,6 +71,11 @@ kotlin {
       iosArm64Test.dependsOn(this)
       iosSimulatorArm64Test.dependsOn(this)
     }
+    val jvmMain by creating {
+      dependencies {
+        implementation(Deps.sqlDelightSqliteDriver)
+      }
+    }
   }
 }
 
