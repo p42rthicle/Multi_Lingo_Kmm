@@ -6,5 +6,5 @@ data class TranslationHistoryItem(
   val fromText: String,
   val toLanguageCode: String,
   val toText: String,
-  val timestamp: Long
+  val timestamp: Long? = null
 )

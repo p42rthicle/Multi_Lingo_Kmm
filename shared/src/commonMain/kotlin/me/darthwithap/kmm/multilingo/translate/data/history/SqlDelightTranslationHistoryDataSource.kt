@@ -28,7 +28,7 @@ class SqlDelightTranslationHistoryDataSource(
         toLanguageCode,
         fromText,
         toText,
-        Clock.System.now().toEpochMilliseconds()
+        timestamp ?: Clock.System.now().toEpochMilliseconds()
       )
     }
   }
