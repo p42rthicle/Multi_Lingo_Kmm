@@ -7,5 +7,5 @@ enum class TranslateError {
   UnknownError
 }
 
-class TranslateException(error: TranslateError) :
+class TranslateException(val error: TranslateError) :
   Exception("Invalid or unsupported language. Error: $error")
