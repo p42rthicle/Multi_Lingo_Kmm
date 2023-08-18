@@ -87,3 +87,10 @@ android {
     targetSdk = 33
   }
 }
+
+sqldelight {
+  database("TranslationDatabase") {
+    packageName = "me.darthwithap.kmm.multilingo.database"
+    sourceFolders = listOf("sqldelight")
+  }
+}
