@@ -7,7 +7,7 @@ import java.util.Locale
 
 actual class UiLanguage(
   actual val language: Language,
-  @DrawableRes drawableRes: Int
+  @DrawableRes val drawableRes: Int
 ) {
 
   fun toLocale(): Locale? {

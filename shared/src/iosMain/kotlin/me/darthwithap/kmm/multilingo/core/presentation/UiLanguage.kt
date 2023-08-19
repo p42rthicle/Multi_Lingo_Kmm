@@ -14,7 +14,7 @@ actual class UiLanguage(
 
     actual val allLanguages: List<UiLanguage>
       get() = Language.values().map {
-        UiLanguage(it, it.languageName)
+        UiLanguage(it, it.languageName.lowercase())
       }
 
   }
