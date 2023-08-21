@@ -2,6 +2,7 @@ package me.darthwithap.kmm.multilingo.android.translate.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -36,7 +37,8 @@ fun TranslateScreen(
       item {
         Row(
           modifier = Modifier.fillMaxWidth(),
-          verticalAlignment = Alignment.CenterVertically
+          verticalAlignment = Alignment.CenterVertically,
+          horizontalArrangement = Arrangement.SpaceBetween
         ) {
           LanguageDropDown(
             language = state.fromUiLanguage,
@@ -47,9 +49,11 @@ fun TranslateScreen(
               onEvent(TranslateEvent.FromLanguageChosen(it))
             }
           )
+          Spacer(modifier = Modifier.weight(1f))
           SwapLanguagesButton {
             onEvent(TranslateEvent.SwapLanguages)
           }
+          Spacer(modifier = Modifier.weight(1f))
           LanguageDropDown(
             language = state.toUiLanguage,
             isOpen = state.isChoosingToLanguage,

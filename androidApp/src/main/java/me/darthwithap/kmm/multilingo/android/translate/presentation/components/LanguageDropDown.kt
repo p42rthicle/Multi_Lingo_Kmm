@@ -12,6 +12,7 @@ import androidx.compose.material.DropdownMenu
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.ArrowDropUp
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -46,7 +47,6 @@ fun LanguageDropDown(
     // anchor ui when the dropdown menu is collapsed / not expanded
     Row(
       modifier = Modifier
-        .fillMaxWidth()
         .clickable { onClick() }
         .padding(12.dp),
       verticalAlignment = Alignment.CenterVertically
@@ -60,7 +60,7 @@ fun LanguageDropDown(
       Text(text = language.language.languageName, color = LightBlue)
       Spacer(modifier = Modifier.width(4.dp))
       Icon(
-        imageVector = if (isOpen) Icons.Default.ArrowDropUp else Icons.Default.ArrowDropUp,
+        imageVector = if (isOpen) Icons.Default.ArrowDropUp else Icons.Default.ArrowDropDown,
         contentDescription = if (isOpen) stringResource(R.string.close)
         else stringResource(R.string.open),
         tint = LightBlue,
