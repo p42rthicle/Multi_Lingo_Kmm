@@ -55,6 +55,11 @@ fun MultiLingoTheme(
       fontFamily = customFont,
       fontWeight = FontWeight.Normal,
       fontSize = 12.sp
+    ),
+    subtitle1 = TextStyle(
+      fontFamily = customFont,
+      fontWeight = FontWeight.Light,
+      fontSize = 10.sp
     )
   )
   val shapes = Shapes(
