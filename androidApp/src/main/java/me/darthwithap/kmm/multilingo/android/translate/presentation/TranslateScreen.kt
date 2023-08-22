@@ -12,19 +12,26 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.FabPosition
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
 import me.darthwithap.kmm.multilingo.android.R
@@ -33,6 +40,7 @@ import me.darthwithap.kmm.multilingo.android.translate.presentation.components.S
 import me.darthwithap.kmm.multilingo.android.translate.presentation.components.TranslateTextField
 import me.darthwithap.kmm.multilingo.android.translate.presentation.components.TranslationHistoryItem
 import me.darthwithap.kmm.multilingo.android.translate.presentation.components.rememberTextToSpeech
+import me.darthwithap.kmm.multilingo.translate.domain.translate.TranslateError
 import me.darthwithap.kmm.multilingo.translate.presentation.TranslateEvent
 import me.darthwithap.kmm.multilingo.translate.presentation.TranslateState
 import java.util.Locale
@@ -46,10 +54,35 @@ fun TranslateScreen(
 ) {
   val context = LocalContext.current
 
+  LaunchedEffect(key1 = state.error) {
+    val message: String? = when (state.error) {
+      TranslateError.ServiceUnavailable -> context.getString(R.string.error_service_unavailable)
+      TranslateError.ClientError -> context.getString(R.string.error_client)
+      TranslateError.ServerError -> context.getString(R.string.error_server)
+      TranslateError.UnknownError -> context.getString(R.string.error_unknown)
+      null -> null
+    }
+    message?.let {
+      Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+      onEvent(TranslateEvent.OnErrorSeen)
+    }
+  }
+
   Scaffold(
     floatingActionButton = {
-
-    }
+      FloatingActionButton(
+        onClick = { onEvent(TranslateEvent.RecordVoiceAudio) },
+        backgroundColor = MaterialTheme.colors.primary,
+        contentColor = MaterialTheme.colors.onPrimary,
+        modifier = Modifier.size(60.dp)
+      ) {
+        Icon(
+          imageVector = ImageVector.vectorResource(id = R.drawable.mic),
+          contentDescription = stringResource(id = R.string.record_audio)
+        )
+      }
+    },
+    floatingActionButtonPosition = FabPosition.Center
   ) { paddingValues ->
     LazyColumn(
       modifier = Modifier

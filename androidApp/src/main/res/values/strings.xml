@@ -9,4 +9,9 @@
   <string name="play_loud">Play Loud</string>
   <string name="copied_to_clipboard">Copied to clipboard</string>
   <string name="history">History</string>
+  <string name="error_service_unavailable">Server unavailable</string>
+  <string name="error_client">Something went wrong</string>
+  <string name="error_server">Server error occurred</string>
+  <string name="error_unknown">Unknown error occurred</string>
+  <string name="record_audio">Record Audio</string>
 </resources>
