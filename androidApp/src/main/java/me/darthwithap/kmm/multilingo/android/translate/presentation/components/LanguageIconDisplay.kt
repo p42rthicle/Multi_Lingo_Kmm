@@ -13,7 +13,7 @@ import me.darthwithap.kmm.multilingo.core.presentation.UiLanguage
 
 @Composable
 fun LanguageIconDisplay(
-  modifier: Modifier,
+  modifier: Modifier = Modifier,
   language: UiLanguage
 ) {
   Row(

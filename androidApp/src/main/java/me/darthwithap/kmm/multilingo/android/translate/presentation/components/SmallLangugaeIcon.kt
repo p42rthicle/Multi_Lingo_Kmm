@@ -9,7 +9,7 @@ import me.darthwithap.kmm.multilingo.core.presentation.UiLanguage
 
 @Composable
 fun SmallLanguageIcon(
-  modifier: Modifier,
+  modifier: Modifier = Modifier,
   language: UiLanguage
 ) {
   AsyncImage(

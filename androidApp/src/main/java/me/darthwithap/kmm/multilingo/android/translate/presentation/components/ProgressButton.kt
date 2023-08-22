@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun ProgressButton(
-  modifier: Modifier,
+  modifier: Modifier = Modifier,
   text: String,
   isLoading: Boolean = false,
   onClick: () -> Unit

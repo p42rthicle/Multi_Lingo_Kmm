@@ -1,5 +1,9 @@
+@file:OptIn(ExperimentalComposeUiApi::class)
+
 package me.darthwithap.kmm.multilingo.android.translate.presentation
 
+import android.speech.tts.TextToSpeech
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,18 +14,30 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
+import me.darthwithap.kmm.multilingo.android.R
 import me.darthwithap.kmm.multilingo.android.translate.presentation.components.LanguageDropDown
 import me.darthwithap.kmm.multilingo.android.translate.presentation.components.SwapLanguagesButton
+import me.darthwithap.kmm.multilingo.android.translate.presentation.components.TranslateTextField
+import me.darthwithap.kmm.multilingo.android.translate.presentation.components.rememberTextToSpeech
 import me.darthwithap.kmm.multilingo.translate.presentation.TranslateEvent
 import me.darthwithap.kmm.multilingo.translate.presentation.TranslateState
+import java.util.Locale
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun TranslateScreen(
   state: TranslateState,
   onEvent: (TranslateEvent) -> Unit
 ) {
+  val context = LocalContext.current
+
   Scaffold(
     floatingActionButton = {
 
@@ -64,6 +80,40 @@ fun TranslateScreen(
             }
           )
         }
+      }
+      item {
+        val clipboardManager = LocalClipboardManager.current
+        val keyboardController = LocalSoftwareKeyboardController.current
+        val tts = rememberTextToSpeech()
+        TranslateTextField(
+          modifier = Modifier.fillMaxWidth(),
+          fromText = state.fromText,
+          toText = state.toText,
+          isTranslating = state.isTranslating,
+          fromUiLanguage = state.fromUiLanguage,
+          toUiLanguage = state.toUiLanguage,
+          onTranslateClick = {
+            keyboardController?.hide()
+            onEvent(TranslateEvent.Translate)
+          },
+          onTextChanged = { onEvent(TranslateEvent.TranslationTextChanged(it)) },
+          onCopyClick = {
+            clipboardManager.setText(buildAnnotatedString {
+              append(it)
+            })
+            Toast.makeText(
+              context, context.getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT
+            ).show()
+          },
+          onCloseClick = { onEvent(TranslateEvent.StopTranslation) },
+          onSpeakerClick = {
+            val locale = state.toUiLanguage.toLocale() ?: Locale.ENGLISH
+            tts.language = locale
+            tts.speak(
+              state.toText, TextToSpeech.QUEUE_FLUSH, null, null
+            )
+          },
+          onTextFieldClick = { onEvent(TranslateEvent.EditTranslation) })
       }
     }
   }
