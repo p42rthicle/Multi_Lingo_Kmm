@@ -1,12 +1,12 @@
 package me.darthwithap.kmm.multilingo.android.voice_to_text.data
 
-import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
+import android.speech.SpeechRecognizer.ERROR_CLIENT
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import me.darthwithap.kmm.multilingo.android.R
@@ -73,6 +73,9 @@ class AndroidVoiceToTextParser(
   }
 
   override fun onError(error: Int) {
+    if (error == ERROR_CLIENT) {
+      return
+    }
     _state.update { it.copy(error = "Error: $error") }
   }
 
