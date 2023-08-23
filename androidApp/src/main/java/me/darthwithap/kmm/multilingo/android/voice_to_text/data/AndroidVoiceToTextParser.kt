@@ -1,6 +1,7 @@
 package me.darthwithap.kmm.multilingo.android.voice_to_text.data
 
 import android.app.Application
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognitionListener
@@ -15,20 +16,20 @@ import me.darthwithap.kmm.multilingo.voice_to_text.VoiceToTextParser
 import me.darthwithap.kmm.multilingo.voice_to_text.VoiceToTextParserState
 
 class AndroidVoiceToTextParser(
-  private val app: Application
+  private val appContext: Context
 ) : VoiceToTextParser, RecognitionListener {
   private val _state = MutableStateFlow(VoiceToTextParserState())
 
-  private val recognizer = SpeechRecognizer.createSpeechRecognizer(app)
+  private val recognizer = SpeechRecognizer.createSpeechRecognizer(appContext)
   override val state: CStateFlow<VoiceToTextParserState>
     get() = _state.toCStateFlow()
 
   override fun startListening(languageCode: String) {
     _state.update { VoiceToTextParserState() }
-    if (!SpeechRecognizer.isRecognitionAvailable(app)) {
+    if (!SpeechRecognizer.isRecognitionAvailable(appContext)) {
       _state.update {
         it.copy(
-          error = app.getString(R.string.error_speech_recognition_unavailable)
+          error = appContext.getString(R.string.error_speech_recognition_unavailable)
         )
       }
       return
