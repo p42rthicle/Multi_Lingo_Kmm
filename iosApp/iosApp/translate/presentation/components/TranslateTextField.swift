@@ -65,23 +65,34 @@ private extension TranslateTextField {
         let isTranslating: Bool
         let onTranslateEvent: (TranslateEvent) -> Void
         
+        @FocusState private var isFocused: Bool
+        
         var body: some View {
-            TextEditor(text: $fromText)
-                .frame(maxWidth: .infinity,
-                minHeight: 180,
-                       alignment: .topLeading)
-                .padding()
-                .foregroundColor(Color.onSurface)
-                .overlay(alignment: .bottomTrailing) {
-                    ProgressButton(text: "Translate", isLoading: isTranslating, onClick: {
-                        onTranslateEvent(TranslateEvent.Translate())
-                    })
-                    .padding(.trailing)
-                    .padding(.bottom)
+            ZStack(alignment: .topLeading) {
+                TextEditor(text: $fromText)
+                    .frame(maxWidth: .infinity, minHeight: 180, alignment: .topLeading)
+                    .padding()
+                    .foregroundColor(Color.onSurface)
+                    .focused($isFocused)
+                    .overlay(alignment: .bottomTrailing) {
+                        ProgressButton(text: "Translate", isLoading: isTranslating, onClick: {
+                            onTranslateEvent(TranslateEvent.Translate())
+                        })
+                        .padding(.trailing)
+                        .padding(.bottom)
+                    }
+                
+            if !isFocused && fromText.isEmpty {
+                Text("Enter text to translate")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                    .padding(.leading)
+                    .padding(.top)
                 }
-                .onAppear {
-                    UITextView.appearance().backgroundColor = .clear
-                }
+            }
+            .onAppear {
+                UITextView.appearance().backgroundColor = .clear
+            }
         }
     }
     
