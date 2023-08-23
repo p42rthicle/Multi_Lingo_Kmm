@@ -16,7 +16,7 @@ struct ProgressButton: View {
     
     var body: some View {
         Button(action: {
-            if isLoading {
+            if !isLoading {
                 onClick()
             }
         }) {
@@ -43,6 +43,6 @@ struct ProgressButton: View {
 
 struct ProgressButton_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressButton(text: "Translate", isLoading: true, onClick: {})
+        ProgressButton(text: "Translate", isLoading: false, onClick: {})
     }
 }
