@@ -68,6 +68,25 @@ struct TranslateScreen: View {
                 )
                 .listRowSeparator(.hidden)
                 .listRowBackground(Color.background)
+                
+                if !viewModel.state.historyList.isEmpty {
+                    Text("History")
+                        .font(.title2)
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Color.background)
+                }
+                
+                ForEach(viewModel.state.historyList, id: \.self.id) { historyItem in
+                    TranslateHistoryItem(historyItem: historyItem, onClick: {
+                        viewModel.onEvent(event: TranslateEvent.HistoryItemChosen(historyItem: historyItem))
+                    })
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.background)
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.background)
             }
             .listStyle(.plain)
             .buttonStyle(.plain)

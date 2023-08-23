@@ -15,6 +15,8 @@
 		33462F392A95F8D6004E57F6 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33462F382A95F8D6004E57F6 /* ProgressButton.swift */; };
 		33462F3B2A95FB1A004E57F6 /* TranslateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33462F3A2A95FB1A004E57F6 /* TranslateTextField.swift */; };
 		33462F3D2A9618B7004E57F6 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33462F3C2A9618B7004E57F6 /* TextToSpeech.swift */; };
+		33462F3F2A961A9C004E57F6 /* TranslateHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33462F3E2A961A9C004E57F6 /* TranslateHistoryItem.swift */; };
+		33462F422A961C81004E57F6 /* TimestampFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33462F412A961C81004E57F6 /* TimestampFormatter.swift */; };
 		334E048E2A94B7E9003A599A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E048D2A94B7E9003A599A /* Colors.swift */; };
 		334E04932A94CBCB003A599A /* LanguageDropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E04922A94CBCB003A599A /* LanguageDropDownItem.swift */; };
 		334E04952A952A18003A599A /* LanguageDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E04942A952A18003A599A /* LanguageDropDown.swift */; };
@@ -35,6 +37,8 @@
 		33462F382A95F8D6004E57F6 /* ProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
 		33462F3A2A95FB1A004E57F6 /* TranslateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateTextField.swift; sourceTree = "<group>"; };
 		33462F3C2A9618B7004E57F6 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
+		33462F3E2A961A9C004E57F6 /* TranslateHistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateHistoryItem.swift; sourceTree = "<group>"; };
+		33462F412A961C81004E57F6 /* TimestampFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampFormatter.swift; sourceTree = "<group>"; };
 		334E048D2A94B7E9003A599A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		334E04922A94CBCB003A599A /* LanguageDropDownItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDropDownItem.swift; sourceTree = "<group>"; };
 		334E04942A952A18003A599A /* LanguageDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDropDown.swift; sourceTree = "<group>"; };
@@ -78,6 +82,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		33462F402A961C65004E57F6 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				33462F412A961C81004E57F6 /* TimestampFormatter.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		334E048B2A94B452003A599A /* core */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +118,7 @@
 		334E04902A94CBA5003A599A /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				33462F402A961C65004E57F6 /* util */,
 				334E04912A94CBAE003A599A /* components */,
 				334E049A2A9542F5003A599A /* IOSTranslateViewModel.swift */,
 				334E049C2A954312003A599A /* TranslateScreen.swift */,
@@ -124,6 +137,7 @@
 				33462F362A95F723004E57F6 /* LanguageIconDisplay.swift */,
 				33462F382A95F8D6004E57F6 /* ProgressButton.swift */,
 				33462F3A2A95FB1A004E57F6 /* TranslateTextField.swift */,
+				33462F3E2A961A9C004E57F6 /* TranslateHistoryItem.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -312,8 +326,10 @@
 				334E049D2A954312003A599A /* TranslateScreen.swift in Sources */,
 				334E04952A952A18003A599A /* LanguageDropDown.swift in Sources */,
 				334E048E2A94B7E9003A599A /* Colors.swift in Sources */,
+				33462F422A961C81004E57F6 /* TimestampFormatter.swift in Sources */,
 				33462F3D2A9618B7004E57F6 /* TextToSpeech.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				33462F3F2A961A9C004E57F6 /* TranslateHistoryItem.swift in Sources */,
 				33462F3B2A95FB1A004E57F6 /* TranslateTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
