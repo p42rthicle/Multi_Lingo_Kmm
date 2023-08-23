@@ -4,7 +4,7 @@ import me.darthwithap.kmm.multilingo.core.domain.language.Language
 
 actual class UiLanguage(
   actual val language: Language,
-  image: String
+  val imageName: String
 ) {
   actual companion object {
     actual fun byCode(langCode: String): UiLanguage {
@@ -16,6 +16,5 @@ actual class UiLanguage(
       get() = Language.values().map {
         UiLanguage(it, it.languageName.lowercase())
       }
-
   }
 }
