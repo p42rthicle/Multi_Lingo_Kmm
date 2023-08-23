@@ -4,4 +4,4 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 expect class CMutableStateFlow<T>(mutableStateFlow: MutableStateFlow<T>) : MutableStateFlow<T>
 
-fun <T> MutableStateFlow<T>.toCommon() = CMutableStateFlow<T>(this)
+fun <T> MutableStateFlow<T>.toCMutableFlow() = CMutableStateFlow(this)

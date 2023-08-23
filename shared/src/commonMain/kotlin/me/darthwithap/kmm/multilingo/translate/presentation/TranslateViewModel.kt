@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.updateAndGet
 import kotlinx.coroutines.launch
 import me.darthwithap.kmm.multilingo.core.domain.util.CStateFlow
 import me.darthwithap.kmm.multilingo.core.domain.util.Resource
-import me.darthwithap.kmm.multilingo.core.domain.util.toCommon
+import me.darthwithap.kmm.multilingo.core.domain.util.toCStateFlow
 import me.darthwithap.kmm.multilingo.core.presentation.UiLanguage
 import me.darthwithap.kmm.multilingo.translate.domain.history.TranslationHistoryDataSource
 import me.darthwithap.kmm.multilingo.translate.domain.translate.Translate
@@ -43,7 +43,7 @@ class TranslateViewModel(
       } else state
     }.stateIn(
       viewModelScope, SharingStarted.WhileSubscribed(4000), TranslateState()
-    ).toCommon()
+    ).toCStateFlow()
 
   private var translateJob: Job? = null
 

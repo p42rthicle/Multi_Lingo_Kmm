@@ -5,7 +5,7 @@ import com.squareup.sqldelight.runtime.coroutines.mapToList
 import kotlinx.coroutines.flow.map
 import kotlinx.datetime.Clock
 import me.darthwithap.kmm.multilingo.core.domain.util.CFlow
-import me.darthwithap.kmm.multilingo.core.domain.util.toCommon
+import me.darthwithap.kmm.multilingo.core.domain.util.toCFlow
 import me.darthwithap.kmm.multilingo.database.TranslationDatabase
 import me.darthwithap.kmm.multilingo.translate.domain.history.TranslationHistoryDataSource
 import me.darthwithap.kmm.multilingo.translate.domain.history.TranslationHistoryItem
@@ -17,7 +17,7 @@ class SqlDelightTranslationHistoryDataSource(
     return db.translateQueries.getHistory().asFlow().mapToList()
       .map { historyEntities ->
         historyEntities.map { it.toDomainModel() }
-      }.toCommon()
+      }.toCFlow()
   }
 
   override suspend fun insertHistoryItem(item: TranslationHistoryItem) {

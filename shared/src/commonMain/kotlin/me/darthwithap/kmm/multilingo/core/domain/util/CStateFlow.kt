@@ -4,4 +4,4 @@ import kotlinx.coroutines.flow.StateFlow
 
 expect class CStateFlow<T>(stateFlow: StateFlow<T>) : StateFlow<T>
 
-fun <T> StateFlow<T>.toCommon() = CStateFlow<T>(this)
+fun <T> StateFlow<T>.toCStateFlow() = CStateFlow(this)
