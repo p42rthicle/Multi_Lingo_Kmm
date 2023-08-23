@@ -27,7 +27,7 @@ extension Color {
     static let violetAccent = Color(hex:sharedColors.VioletAccent)
     static let textBlackOnWhite = Color(hex:sharedColors.TextBlackOnWhite)
     
-    static let primary = Color(light: .accentColor, dark: .accentColor)
+    static let primaryColor = Color(light: .violetAccent, dark: .violetAccent)
     static let onPrimary = Color(light: .white, dark: .white)
     static let background = Color(light: .lightBlueGrey, dark: .darkGrey)
     static let onBackground = Color(light: .textBlackOnWhite, dark: .white)

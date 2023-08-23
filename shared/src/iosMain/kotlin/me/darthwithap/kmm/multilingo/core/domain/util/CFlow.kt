@@ -1,22 +1,30 @@
 package me.darthwithap.kmm.multilingo.core.domain.util
 
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
 
 actual open class CFlow<T> actual constructor(
   private val flow: Flow<T>
-) : Flow<T> by flow {
+): Flow<T> by flow {
+
   fun subscribe(
     coroutineScope: CoroutineScope,
     dispatcher: CoroutineDispatcher,
     onCollect: (T) -> Unit
-  ): IosDisposableHandle {
+  ): DisposableHandle {
     val job = coroutineScope.launch(dispatcher) {
       flow.collect(onCollect)
     }
+    return DisposableHandle { job.cancel() }
+  }
 
-    return IosDisposableHandle { job.cancel() }
+  fun subscribe(
+    onCollect: (T) -> Unit
+  ): DisposableHandle {
+    return subscribe(
+      coroutineScope = GlobalScope,
+      dispatcher = Dispatchers.Main,
+      onCollect = onCollect
+    )
   }
 }
