@@ -90,6 +90,20 @@ struct TranslateScreen: View {
             }
             .listStyle(.plain)
             .buttonStyle(.plain)
+            
+            VStack {
+                Spacer()
+                NavigationLink(destination: Text("Voice to text screen")) {
+                    ZStack {
+                        Circle()
+                            .foregroundColor(.primaryColor)
+                            .padding()
+                        Image(uiImage: UIImage(named: "mic")!)
+                            .foregroundColor(.onPrimary)
+                    }
+                    .frame(maxWidth: 100, maxHeight: 100)
+                }
+            }
         }
         .onAppear {
             viewModel.startObserving()
