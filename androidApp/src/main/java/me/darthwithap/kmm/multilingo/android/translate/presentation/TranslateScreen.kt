@@ -33,6 +33,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import me.darthwithap.kmm.multilingo.android.R
 import me.darthwithap.kmm.multilingo.android.translate.presentation.components.LanguageDropDown
@@ -158,7 +159,7 @@ fun TranslateScreen(
       }
       item {
         if (state.historyList.isNotEmpty()) {
-          Text(text = stringResource(id = R.string.history), style = MaterialTheme.typography.h3)
+          Text(text = stringResource(id = R.string.history), style = MaterialTheme.typography.h3, fontWeight = FontWeight.SemiBold)
         }
       }
       items(state.historyList) { historyItem ->
