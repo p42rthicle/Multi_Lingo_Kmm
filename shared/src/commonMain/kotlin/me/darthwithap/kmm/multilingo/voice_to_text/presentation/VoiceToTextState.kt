@@ -5,5 +5,5 @@ data class VoiceToTextState(
   val spokenTextResult: String? = null,
   val canRecord: Boolean = false,
   val recordError: String? = null,
-  val displayState: RecorderDisplayState
+  val displayState: RecorderDisplayState = RecorderDisplayState.WAITING_TO_SPEAK
 )
