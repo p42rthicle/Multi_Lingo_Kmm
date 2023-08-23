@@ -12,6 +12,7 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		33462F352A95F2C1004E57F6 /* GradientSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33462F342A95F2C1004E57F6 /* GradientSurface.swift */; };
 		33462F372A95F723004E57F6 /* LanguageIconDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33462F362A95F723004E57F6 /* LanguageIconDisplay.swift */; };
+		33462F392A95F8D6004E57F6 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33462F382A95F8D6004E57F6 /* ProgressButton.swift */; };
 		334E048E2A94B7E9003A599A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E048D2A94B7E9003A599A /* Colors.swift */; };
 		334E04932A94CBCB003A599A /* LanguageDropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E04922A94CBCB003A599A /* LanguageDropDownItem.swift */; };
 		334E04952A952A18003A599A /* LanguageDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E04942A952A18003A599A /* LanguageDropDown.swift */; };
@@ -29,6 +30,7 @@
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		33462F342A95F2C1004E57F6 /* GradientSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSurface.swift; sourceTree = "<group>"; };
 		33462F362A95F723004E57F6 /* LanguageIconDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageIconDisplay.swift; sourceTree = "<group>"; };
+		33462F382A95F8D6004E57F6 /* ProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
 		334E048D2A94B7E9003A599A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		334E04922A94CBCB003A599A /* LanguageDropDownItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDropDownItem.swift; sourceTree = "<group>"; };
 		334E04942A952A18003A599A /* LanguageDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDropDown.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				334E04962A9534A3003A599A /* SmallLanguageIcon.swift */,
 				334E04982A953841003A599A /* SwapLanguagesButton.swift */,
 				33462F362A95F723004E57F6 /* LanguageIconDisplay.swift */,
+				33462F382A95F8D6004E57F6 /* ProgressButton.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33462F392A95F8D6004E57F6 /* ProgressButton.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				33462F352A95F2C1004E57F6 /* GradientSurface.swift in Sources */,
 				334E04932A94CBCB003A599A /* LanguageDropDownItem.swift in Sources */,
