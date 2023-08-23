@@ -70,7 +70,7 @@ fun TranslateTextField(
       .padding(16.dp)
   ) {
     AnimatedContent(targetState = toText) { toText ->
-      val isIdleState = toText == null || isTranslating
+      val isIdleState = (toText == null || isTranslating)
       if (isIdleState) {
         IdleTranslateTextField(
           modifier = Modifier
