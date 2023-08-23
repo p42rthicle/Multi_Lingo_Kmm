@@ -10,6 +10,7 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
+		33462F352A95F2C1004E57F6 /* GradientSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33462F342A95F2C1004E57F6 /* GradientSurface.swift */; };
 		334E048E2A94B7E9003A599A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E048D2A94B7E9003A599A /* Colors.swift */; };
 		334E04932A94CBCB003A599A /* LanguageDropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E04922A94CBCB003A599A /* LanguageDropDownItem.swift */; };
 		334E04952A952A18003A599A /* LanguageDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E04942A952A18003A599A /* LanguageDropDown.swift */; };
@@ -25,6 +26,7 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		33462F342A95F2C1004E57F6 /* GradientSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSurface.swift; sourceTree = "<group>"; };
 		334E048D2A94B7E9003A599A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		334E04922A94CBCB003A599A /* LanguageDropDownItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDropDownItem.swift; sourceTree = "<group>"; };
 		334E04942A952A18003A599A /* LanguageDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDropDown.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				334E048D2A94B7E9003A599A /* Colors.swift */,
+				33462F342A95F2C1004E57F6 /* GradientSurface.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				33462F352A95F2C1004E57F6 /* GradientSurface.swift in Sources */,
 				334E04932A94CBCB003A599A /* LanguageDropDownItem.swift in Sources */,
 				334E04972A9534A3003A599A /* SmallLanguageIcon.swift in Sources */,
 				334E049B2A9542F5003A599A /* IOSTranslateViewModel.swift in Sources */,
