@@ -15,4 +15,10 @@
   <string name="error_unknown">Unknown error occurred</string>
   <string name="record_audio">Record Audio</string>
   <string name="error_speech_recognition_unavailable">Speech recognition unavailable</string>
+  <string name="stop_speaking">Stop recording audio</string>
+  <string name="use_recording">Use Recording</string>
+  <string name="record_again">Record again</string>
+  <string name="close_screen">Close voice to text sxreen</string>
+  <string name="listening">Listening…</string>
+  <string name="start_talking">Click record and start talking</string>
 </resources>
