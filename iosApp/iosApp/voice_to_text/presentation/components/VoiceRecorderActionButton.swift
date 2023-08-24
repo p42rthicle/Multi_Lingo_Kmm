@@ -9,7 +9,7 @@
 import SwiftUI
 import shared
 
-struct VoiceRecorderButton: View {
+struct VoiceRecorderActionButton: View {
     var displayState: RecorderDisplayState
     var onClick: () -> Void
     
@@ -40,7 +40,7 @@ struct VoiceRecorderButton: View {
 
 struct VoiceRecorderButton_Previews: PreviewProvider {
     static var previews: some View {
-        VoiceRecorderButton(
+        VoiceRecorderActionButton(
             displayState: .speaking,
             onClick: {}
         )
