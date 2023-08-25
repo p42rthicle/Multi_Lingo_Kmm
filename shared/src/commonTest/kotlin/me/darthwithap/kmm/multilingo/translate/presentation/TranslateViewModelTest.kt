@@ -3,6 +3,8 @@ package me.darthwithap.kmm.multilingo.translate.presentation
 import app.cash.turbine.test
 import assertk.assertThat
 import assertk.assertions.isEqualTo
+import assertk.assertions.isFalse
+import assertk.assertions.isTrue
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
@@ -60,6 +62,24 @@ class TranslateViewModelTest {
         timestamp = historyItem.timestamp ?: 100L
       )
       assertThat(state.historyList.first()).isEqualTo(expected)
+    }
+  }
+
+  @Test
+  fun `Translate success - state is properly updated`() = runBlocking{
+    viewModel.state.test {
+      awaitItem()
+      viewModel.onEvent(TranslateEvent.TranslationTextChanged("text changed"))
+      awaitItem()
+
+      viewModel.onEvent(TranslateEvent.Translate)
+
+      val loadingState = awaitItem()
+      assertThat(loadingState.isTranslating).isTrue()
+
+      val resultState = awaitItem()
+      assertThat(resultState.isTranslating).isFalse()
+      assertThat(resultState.toText).isEqualTo(translateClient.translatedText)
     }
   }
 }
