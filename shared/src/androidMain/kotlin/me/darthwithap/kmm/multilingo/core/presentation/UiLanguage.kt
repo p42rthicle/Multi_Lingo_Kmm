@@ -5,7 +5,7 @@ import me.darthwithap.kmm.multilingo.R
 import me.darthwithap.kmm.multilingo.core.domain.language.Language
 import java.util.Locale
 
-actual class UiLanguage(
+actual data class UiLanguage(
   actual val language: Language,
   @DrawableRes val drawableRes: Int
 ) {
