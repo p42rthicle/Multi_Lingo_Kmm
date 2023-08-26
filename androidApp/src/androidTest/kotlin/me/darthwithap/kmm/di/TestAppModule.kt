@@ -9,6 +9,7 @@ import me.darthwithap.kmm.multilingo.translate.data.remote.FakeTranslateClient
 import me.darthwithap.kmm.multilingo.translate.domain.history.TranslationHistoryDataSource
 import me.darthwithap.kmm.multilingo.translate.domain.translate.Translate
 import me.darthwithap.kmm.multilingo.translate.domain.translate.TranslateClient
+import me.darthwithap.kmm.multilingo.voice_to_text.VoiceToTextParser
 import me.darthwithap.kmm.multilingo.voice_to_text.data.FakeVoiceToTextParser
 import javax.inject.Singleton
 
@@ -18,13 +19,13 @@ object TestAppModule {
 
   @Provides
   @Singleton
-  fun provideFakeTranslateClient(): FakeTranslateClient {
+  fun provideFakeTranslateClient(): TranslateClient {
     return FakeTranslateClient()
   }
 
   @Provides
   @Singleton
-  fun provideFakeTranslationHistoryDatasource(): FakeTranslationHistoryDataSource {
+  fun provideFakeTranslationHistoryDatasource(): TranslationHistoryDataSource {
     return FakeTranslationHistoryDataSource()
   }
 
@@ -39,7 +40,7 @@ object TestAppModule {
 
   @Provides
   @Singleton
-  fun provideFakeVoiceToTextParser(): FakeVoiceToTextParser {
+  fun provideFakeVoiceToTextParser(): VoiceToTextParser {
     return FakeVoiceToTextParser()
   }
 }
