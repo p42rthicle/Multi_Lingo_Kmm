@@ -1,4 +1,4 @@
-package me.darthwithap.kmm
+package me.darthwithap.kmm.multilingo
 
 import android.app.Application
 import android.content.Context
